@@ -35,4 +35,13 @@ def photo_location(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'location.html',{"message":message})
-   
+
+
+        # Viewing a single picture
+def one_image(request, galore_id):
+    try:
+        image = Galore.objects.get(id = galore_id)
+    except ObjectDoesNotExist:
+        raise Http404()
+
+    return render(request, 'display_image.html', {'image': image})
