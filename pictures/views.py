@@ -20,3 +20,8 @@ def search_results(request):
         message = f"{category_term}"
 
         return render(request, 'search.html',{"message":message, "galore":searchname})
+    
+
+    else:
+       message = "You haven't searched for any term"
+       return render(request, 'search.html',{"message":message})
