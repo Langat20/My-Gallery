@@ -39,3 +39,8 @@ class Galore(models.Model):
     def delete_galleria(self):
         self.delete()
         
+        
+    @classmethod
+    def days_post(cls):
+        post = cls.objects.filter(pub_date__date = today)
+        return post
