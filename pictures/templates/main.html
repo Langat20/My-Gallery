@@ -1,0 +1,80 @@
+{%extends 'base.html'%} {% block content %} {{block.super}}
+
+<div class="intro">
+    <div class="par">
+        <h3>We Don't Make Gallery.<br> We Make Gallery look Better</h3><br><br>
+        <div class=" ">
+
+
+            <form class="navbar-form" role="search" action="{% url 'photo_location' %}">
+
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search by location i.e kitchen,santorini,..." name="galore">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default " type="submit">Search</button>
+                    </div>
+                </div>
+
+            </form>
+        </div><br>
+        <h5>View it now, enjoy it more</h5>
+
+    </div>
+    <div class="wrapper">
+        <div class="container gall">
+            <h4>My Gallery</h4>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+
+
+    <div class="row show ">
+
+        {% for pic in posts %}
+        <div class="col-md-4 card ">
+            {%if pic.image%}
+            <a href="{% url 'imagedetails' pic.id %}">
+                <img src="{{pic.image.url}}" data-target="#imageModal{{pic.id}}" data-toggle="modal" alt="" class="img-fluid" id="eachimage" style="height: 480px; width: 350px"></a> {%else%}
+            <p>No image</p>
+            {%endif%}
+        </div>
+
+        {% endfor %}
+    </div>
+
+
+    <div class="modal fade" id="imageModal{{pic.id}}" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <img src="{{pic.image.url}}" data-toggle="modal" alt="" style="height:600px;width:500px;">
+                <div class="modal-header">
+                    <h4 id="modal-text text-center">{{pic.name}}</h4>
+                    <h4 style="font-family: 'Kodchasan', sans-serif;color:blue;" id="modal-text ">{{pic.location}}</h4>
+                    <!-- {% for pic in pic.category.all %} -->
+
+                    <button class="btn btn-lg btn-success" style="font-family: 'Kodchasan', sans-serif;color:blue;"> #{{ tag.name }}</button>
+
+                    <!-- {% endfor %} -->
+                </div>
+
+                <div class="modal-footer">
+
+                    <input class="form-control" type="text" value="{{pic.image.url}}" id="{{pic.id}}.url">
+                    <button type="button" value="" onclick="copyFunction('{{pic.id}}.url')" class="btn btn-outline-secondary my-2 my-sm-0 link-btn">Copy Photo Link</button>
+
+                </div>
+                <div class="modal-footer">
+
+                    <h5 id=modal-text>{{image.description}}</h5>
+
+                    <button type="button" class="btn btn-outline-secondary
+       my-2 my-sm-0" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{%endblock%}

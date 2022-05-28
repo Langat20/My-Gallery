@@ -20,5 +20,5 @@ from pictures import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.welcome,name='welcome'),
+    path('',views.main,name='main'),
 ]
