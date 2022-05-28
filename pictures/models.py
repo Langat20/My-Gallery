@@ -49,3 +49,9 @@ class Galore(models.Model):
     def search_by_category(cls, category_term):
         photo= cls.objects.filter(category__category__icontains=category_term)
         return photo
+    
+    
+    @classmethod
+    def filter_by_location(cls, location):
+        photo= cls.objects.filter(location__location__icontains= location)
+        return photo
