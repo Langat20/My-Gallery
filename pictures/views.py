@@ -25,3 +25,14 @@ def search_results(request):
     else:
        message = "You haven't searched for any term"
        return render(request, 'search.html',{"message":message})
+   
+def photo_location(request):
+    if 'galore' in request.GET and request.GET["galore"]:
+        location = request.GET.get('galore')
+        filtername= Galore.filter_by_location(location)
+        message = f"{location}"
+        return render(request,'location.html', {"message":message,"galore": filtername})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'location.html',{"message":message})
+   
