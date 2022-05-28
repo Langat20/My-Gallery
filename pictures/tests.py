@@ -30,3 +30,29 @@ class LocationTest(TestCase):
         location= Location.objects.all()
         self.assertTrue(len(location))
 
+class TestGalore(TestCase):
+    
+
+    def setUp(self):
+
+        '''create category and save'''
+        self.animals= Category(category="animals")
+        self.animals.save_category()
+
+        '''create location and save '''
+        self.santorini= Location(location="santorini")
+        self.santorini.save_location()
+
+        self.new_galore= galore(title="visit Santorini", description="in bikini", galore="Add image", location=self.nairobi, category= self.animals )
+        self.new_galore.save_galore()
+
+    def tearDown(self):
+        Galore.objects.all().delete()
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+
+    def test_delete_image(self):
+        self.new_image= Galore(title="visit Santorini", description="in bikini", galore="Add image", location=self.nairobi, category= self.animals )
+        self.new_image.save_image()
+        self.new_image.delete_image()
+        
