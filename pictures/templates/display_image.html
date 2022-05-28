@@ -1,0 +1,29 @@
+{%extends 'base.html'%} {% block content %}
+
+<div class="card one" style="width: 60rem;">
+
+    <img src="{{image.image.url}}" style="height: 600px; width: 700px" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{image.title}}</h5>
+        <p class="card-text">{{image.description}}</p><br>
+        <p>Posted:{{ image.pub_date|timesince }} </p>
+    </div>
+
+    <div class="link">
+
+        <input class="form-control" type="text" value="{{image.image.url}}" id="{{image.id}}.url">
+        <button type="button" value="" onclick="copyFunction('{{image.id}}.url')" class="btn btn-outline-secondary my-2 my-sm-0 link-btn">Copy Photo Link</button>
+
+    </div>
+</div>
+</div>
+{% block scripts %}
+<script>
+    function copyFunction(element) {
+        var copyText = document.getElementById(element);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+    }
+</script>
+{% endblock scripts %} {% endblock %}
