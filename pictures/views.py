@@ -12,3 +12,11 @@ def main(request):
     post = Galore.objects.all()
     
     return render(request, 'main.html',{"posts":post})
+
+def search_results(request):
+    if 'galore' in request.GET and request.GET["galore"]:
+        category_term = request.GET.get('galore')
+        searchname= Galore.search_by_category(category_term)
+        message = f"{category_term}"
+
+        return render(request, 'search.html',{"message":message, "galore":searchname})
