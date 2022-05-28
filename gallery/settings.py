@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pictures',
     'pictures.apps.PicturesConfig',
+    'bootstrap5'
+    'cloudinary'
     
 ]
 
@@ -65,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',  #load uploaded images
+
             ],
         },
     },
@@ -86,6 +92,18 @@ DATABASES = {
         'PASSWORD':'langat20',
     }
 }
+
+# adding config
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+
+cloudinary.config( 
+  cloud_name = "dpusync50", 
+  api_key = "844883543182319", 
+  api_secret = "0ZkV4QOC5yPqtDdIUSC2ItHlBRs" 
+)
 
 
 # Password validation
@@ -125,6 +143,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+# allow us to to define a special route that will display our uploaded images 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

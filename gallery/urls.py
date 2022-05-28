@@ -21,4 +21,8 @@ from pictures import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.main,name='main'),
+     path ('search/', views.search_results, name='search_results'),
+    path('location/', views.photo_location, name='photo_location'),
+    path('imagedetails/<int:galore_id>', views.one_image, name='imagedetails')
+
 ]
