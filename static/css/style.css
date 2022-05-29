@@ -1,3 +1,4 @@
+
 .navbar {
     background: rgb(232, 60, 24);
     background: linear-gradient(90deg, rgba(232, 60, 24, 1) 0%, rgba(232, 60, 24, 1) 35%, rgba(241, 178, 37, 1) 100%);
@@ -12,6 +13,9 @@ a {
     justify-content: space-around;
     padding-top: 1rem;
     color: red;
+    
+
+    
 }
 
 .par {
@@ -61,7 +65,7 @@ h4 {
 }
 
 .display {
-    background-color: red;
+    background-color: rgb(245, 127, 127);
 }
 
 h2 {
@@ -74,7 +78,7 @@ h2 {
 }
 
 h5 {
-    color: #e83611;
+    color: #2756a6;
 }
 
 p {
