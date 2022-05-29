@@ -6,7 +6,7 @@ A  personal gallery application that you display your photos for others to see.
 ## Authors
  Kipkurui Evans
 
-![Landing page photo](https://github.com/Langat20/My-Gallery/blob/master/app/media/photos/Screen.png)
+![Landing page photo](https://github.com/Langat20/My-Gallery/blob/master/media/photos/Screen.png)
 
 ## BDD
 
