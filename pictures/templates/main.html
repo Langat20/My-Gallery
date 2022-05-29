@@ -9,7 +9,7 @@
             <form class="navbar-form" role="search" action="{% url 'photo_location' %}">
 
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search by location i.e kitchen,santorini,..." name="galore">
+                    <input type="text" class="form-control" placeholder="Search by location i.e Maasai mara,Diani,santorini,..." name="galore">
                     <div class="input-group-btn">
                         <button class="btn btn-default " type="submit">Search</button>
                     </div>
@@ -20,6 +20,9 @@
         <h5>View it now, enjoy it more</h5>
 
     </div>
+
+    
+    
     <div class="wrapper">
         <div class="container gall">
             <h4>My Gallery</h4>
@@ -47,7 +50,7 @@
     <div class="modal fade" id="imageModal{{pic.id}}" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <img src="{{pic.image.url}}" data-toggle="modal" alt="" style="height:600px;width:500px;">
+                <img src="{{pic.image.url}}" data-toggle="modal" alt="" style="height:100px;width:500px;">
                 <div class="modal-header">
                     <h4 id="modal-text text-center">{{pic.name}}</h4>
                     <h4 style="font-family: 'Kodchasan', sans-serif;color:blue;" id="modal-text ">{{pic.location}}</h4>
