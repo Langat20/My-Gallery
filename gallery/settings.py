@@ -39,10 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pictures',
     'pictures.apps.PicturesConfig',
-    'bootstrap5'
-    'cloudinary'
+    'bootstrap4',
+    'cloudinary',
     
 ]
 
@@ -84,8 +83,6 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'gallery',
         'USER': 'moringa',
@@ -100,9 +97,9 @@ import cloudinary.api
 
 
 cloudinary.config( 
-  cloud_name = "dpusync50", 
-  api_key = "844883543182319", 
-  api_secret = "0ZkV4QOC5yPqtDdIUSC2ItHlBRs" 
+  cloud_name = "dw5yis1fz", 
+  api_key = "892955958318618", 
+  api_secret = "mzaA_iTjT9hQVLGEpc9H4ylMLZM" 
 )
 
 
